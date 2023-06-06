@@ -9,8 +9,8 @@ namespace Domain.Entities.Enums
     [Flags]
     public enum Roles
     {
-        None = 0,
-        User = 1,
-        Admin = 2,
+        None = 1,
+        User = 2,
+        Admin = 4,
     }
 }
