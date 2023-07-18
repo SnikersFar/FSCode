@@ -1,7 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Autorization";
+    ViewData["Title"] = "Authorization";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Autorization</h1>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Auth/auth.css" asp-append-version="true" />
+
+<div class="authPanel" id="authpanel">
+    <div class="authheader">
+        <p class="registrationText">Authorization</p>
+    </div>
+    <div class="authmain">
+        <div class="authloginblock">
+            <input class="authlogin" text="text" name="login" placeholder="Login"
+        </div>
+        <div class="authpasswordblock">
+            <input class="authpassword" text="text" name="password" placeholder="Password"
+        </div>
+    </div>
+    <div class="authfooter">
+        <div class="authfooterblock">
+            <a type="button" class="authSignIn" href="/Registration">Sign In</a>
+            <button type="submit" class="authLogIn">Log In</button>
+        </div>
+    </div>
 </div>
