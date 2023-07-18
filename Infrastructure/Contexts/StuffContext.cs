@@ -12,7 +12,7 @@ namespace Infrastructure.Contexts
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {   
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().HasMany(u => u.Orders).WithOne(o => o.Customer);
