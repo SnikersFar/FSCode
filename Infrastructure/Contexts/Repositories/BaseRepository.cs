@@ -10,7 +10,7 @@ namespace Infrastructure.Contexts.Repositories
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        protected BaseRepository(DbContext context)
+        protected BaseRepository(StuffContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

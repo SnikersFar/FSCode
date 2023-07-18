@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Contexts.Repositories
 {
-    public class UserRepository : BaseRepository<User>
+    public class AuthUserRepository : BaseRepository<AuthUser>
     {
-        public UserRepository(StuffContext context) : base(context)
+        public AuthUserRepository(StuffContext context) : base(context)
         {
         }
     }

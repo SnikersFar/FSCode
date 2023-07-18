@@ -5,7 +5,7 @@ namespace Infrastructure.Contexts.Repositories
 {
     public class OrderRepository : BaseRepository<Order>
     {
-        public OrderRepository(DbContext context) : base(context)
+        public OrderRepository(StuffContext context) : base(context)
         {
         }
     }
