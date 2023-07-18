@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Data.Repositories.Interfaces
+namespace Infrastructure.Contexts.Repositories.Interfaces
 {
     public interface IRepository<T>
     {

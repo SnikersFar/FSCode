@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public partial class OrderModel : BaseModel
+    public partial class Order : BaseEntity
     {
         [Required]
         [StringLength(20, MinimumLength = 3)]
@@ -18,7 +18,7 @@ namespace Domain.Entities
         [Required]
         [StringLength(20, MinimumLength = 3)]
         public string Contacts { get; set; }
-        public virtual UserModel Customer { get; set; }
+        public virtual User Customer { get; set; }
 
     }
 }

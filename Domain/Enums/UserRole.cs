@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Enums
 {
-    public abstract class BaseModel
+    [Flags]
+    public enum UserRole
     {
-        public int Id { get; set; }
+        None = 1,
+        User = 2,
+        Admin = 4,
     }
 }
