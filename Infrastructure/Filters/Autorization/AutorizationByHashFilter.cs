@@ -16,44 +16,51 @@ namespace Infrastructure.Filters.Autorization
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var userRepository = context.HttpContext.RequestServices.GetService(typeof(UserRepository)) as UserRepository;
+            var userRepository = context.HttpContext.RequestServices.GetService(typeof(AuthUserRepository)) as AuthUserRepository;
 
             var isAuth = context.HttpContext.User.Identity!.IsAuthenticated;
             if (!isAuth)
             {
-                context.HttpContext.SignOutAsync();
-                context.Result = new ForbidResult();
+                UnAuthorize(context);
                 return;
             }
             var claimId = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value;
             if (claimId is null || !int.TryParse(claimId, out int id))
             {
-                context.HttpContext.SignOutAsync();
-                context.Result = new ForbidResult();
+                UnAuthorize(context);
                 return;
             }
             var user = userRepository!.GetById(id);
             if (user == null)
             {
-                context.HttpContext.SignOutAsync();
-                context.Result = new ForbidResult();
+                UnAuthorize(context);
                 return;
             }
             var token = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Token");
             if (token is null || token.Value != user.Token || user.TokenTime < DateTime.UtcNow)
             {
-                context.HttpContext.SignOutAsync();
-                context.Result = new ForbidResult();
+                UnAuthorize(context);
                 return;
             }
+
 #pragma warning disable CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
-            var success = Enum.TryParse(typeof(UserRole), context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value, out object role);
+
+            var isRole = Enum.TryParse(typeof(UserRole),
+                          context.HttpContext.User.Claims
+                          .FirstOrDefault(c => c.Type == "Id")!.Value, out object role);
+
 #pragma warning restore CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
-            if ((user.Role & _availableRoles) == 0)
+
+            if (!isRole || (user.Role & _availableRoles) == 0)
             {
                 context.Result = new RedirectToActionResult("Index", "Menu", null);
                 return;
             }
+        }
+        private static void UnAuthorize(AuthorizationFilterContext context)
+        {
+            context.HttpContext.SignOutAsync();
+            context.Result = new UnauthorizedResult();
         }
     }
 }
