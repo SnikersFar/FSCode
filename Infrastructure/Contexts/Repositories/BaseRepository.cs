@@ -1,11 +1,11 @@
-﻿using Data.Repositories.Interfaces;
-using Domain.Entities;
+﻿using Domain.Entities;
+using Infrastructure.Contexts.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Repositories
+namespace Infrastructure.Contexts.Repositories
 {
     public abstract class BaseRepository<T> : IRepository<T>
-    where T : BaseModel
+    where T : BaseEntity
     {
         private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;

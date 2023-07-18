@@ -1,58 +1,59 @@
-﻿using Data.Repositories.Interfaces;
-using Domain.Entities;
-using Domain.Entities.Enums;
+﻿using Domain.Enums;
+using Infrastructure.Contexts.Repositories;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Net;
 
 namespace Infrastructure.Filters.Autorization
 {
-    public class AutorizationByHashFilter : IAuthorizationFilter
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class AuthorizeByTokenFilter : Attribute, IAuthorizationFilter
     {
-        private const string RoleClaimType = "Role";
-        private const string HashPasswordClaimType = "HashPassword";
-
-        private Roles _availableRoles;
-
-        private readonly IRepository<UserModel> _userRepository;
-
-        public AutorizationByHashFilter(Data.Repositories.Interfaces.IRepository<UserModel> userRepository, Roles roles)
+        private readonly UserRole _availableRoles;
+        public AuthorizeByTokenFilter(UserRole userRoles)
         {
-            _userRepository = userRepository;
-            _availableRoles = roles;
+            _availableRoles = userRoles;
         }
-
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var isAuth = context.HttpContext.User.Identity.IsAuthenticated;
+            var userRepository = context.HttpContext.RequestServices.GetService(typeof(UserRepository)) as UserRepository;
+
+            var isAuth = context.HttpContext.User.Identity!.IsAuthenticated;
             if (!isAuth)
             {
+                context.HttpContext.SignOutAsync();
                 context.Result = new ForbidResult();
                 return;
             }
-            var claimId = context.HttpContext.User.Claims.FirstOrDefault(c => c.ValueType == "Id");
-            if (claimId is null || int.TryParse(claimId.Value, out int id))
+            var claimId = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value;
+            if (claimId is null || !int.TryParse(claimId, out int id))
             {
+                context.HttpContext.SignOutAsync();
                 context.Result = new ForbidResult();
                 return;
             }
-            var user = _userRepository.GetById(id);
+            var user = userRepository!.GetById(id);
             if (user == null)
             {
+                context.HttpContext.SignOutAsync();
                 context.Result = new ForbidResult();
                 return;
             }
-            var claimHashPassword = context.HttpContext.User.Claims.FirstOrDefault(c => c.ValueType == "HashPassword");
-            if (claimHashPassword is null || claimHashPassword.Value != user.HashPassword)
+            var token = context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Token");
+            if (token is null || token.Value != user.Token || user.TokenTime < DateTime.UtcNow)
             {
+                context.HttpContext.SignOutAsync();
                 context.Result = new ForbidResult();
                 return;
             }
+#pragma warning disable CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
+            var success = Enum.TryParse(typeof(UserRole), context.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")!.Value, out object role);
+#pragma warning restore CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
             if ((user.Role & _availableRoles) == 0)
             {
-                context.Result = new ForbidResult();
+                context.Result = new RedirectToActionResult("Index", "Menu", null);
                 return;
-            } 
+            }
         }
     }
 }
