@@ -2,6 +2,28 @@
     ViewData["Title"] = "Registration";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Registration</h1>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Auth/reg.css" asp-append-version="true" />
+
+<div class="regPanel" id="regpanel">
+    <div class="regheader pallette-bg-color white-color">
+        <p class="registrationText">regorization</p>
+    </div>
+    <div class="regmain">
+        <div class="regloginblock">
+            <input class="reglogin" text="text" name="login" placeholder="Login"
+        </div>
+        <div class="regemailblock">
+            <input class="regemail" text="text" name="Email" placeholder="Email"
+        </div>
+        <div class="regpasswordblock">
+            <input class="regpassword" text="text" name="password" placeholder="Password"
+        </div>
+    </div>
+    <div class="regfooter">
+        <div class="regfooterblock">
+            <a type="button" class="regRedirect" href="/Authorization">Log in</a>
+            <button type="submit" class="regLogIn">Sign in</button>
+        </div>
+    </div>
 </div>

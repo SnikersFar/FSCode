@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\Auth\reg.css" />
+  </ItemGroup>
+
 </Project>

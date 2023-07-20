@@ -1,9 +1,19 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: 'Tektur' !important;
+    src: url(../fonts/Tektur-VariableFont_wdth,wght.ttf)
+}
+
+header {
+    margin: 0.5rem;
+}
+
+.container-navbar {
+    border-radius: 10px;
 }
 
 @media (min-width: 768px) {
-  html {
+    html {
     font-size: 16px;
   }
 }
@@ -26,7 +36,7 @@ body {
 }
 
 .pallette-bg-color {
-    background: rgb(81,42,213) !important;
+    background: rgb(30, 144, 255) !important;
 }
 
 .white-color {

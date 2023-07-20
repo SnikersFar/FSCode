@@ -1,51 +1,67 @@
 ﻿.authPanel {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
 }
 
+.authPanelBlock{
+    width: 300px;
+}
 /*auth header*/
 .authheader {
-
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
 }
 
-.registrationText{
-
+.registrationText {
+    margin: 0;
 }
 
 /*auth main*/
-.authmain{
-
+.authmain {
 }
 
-.authloginblock{
-
+.authloginblock {
+    width: 100%;
 }
 
-.authlogin{
-
+.authlogin {
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .authpasswordblock {
-
+    width: 100%;
 }
 
 .authpassword {
-
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 /*auth footer*/
 
-.authfooter{
-
+.authfooter {
 }
 
-.authfooterblock{
-
+.authfooterblock {
+    display: flex;
 }
 
-.authSignIn{
-
+.authbutton {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
 }
 
-.authLogIn{
+.authRedirect {
+}
 
+.authLogIn {
 }
