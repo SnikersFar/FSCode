@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Authorization";
+}
+
+@section Scripts{
+    <script src="~/js/Auth/auth.js"></script>
+}
+
+@section Sprites{
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Auth/auth.css" asp-append-version="true" />
+}
+
+<div class="authPanel" id="authpanel">
+    <div class="authPanelBlock">
+        <div class="authheader pb-1 pt-1 pallette-bg-color white-color">
+            <p class="registrationText">Authorization</p>
+        </div>
+        <div class="authmain">
+            <div class="authloginblock">
+                <input class="authlogin" text="text" name="login" placeholder="Login" />
+            </div>
+            <div class="authpasswordblock">
+                <input class="authpassword" text="text" name="password" placeholder="Password" />
+            </div>
+        </div>
+        <div class="forgotpasswordBlock" id="forgotPasswordBlock">
+            <div class="forgotpassword">
+                <a type="button" class="forgotpasswordbutton" href="/AccountRecovery">Forgot password ?</a>
+            </div>
+        </div>
+        <div class="authfooter">
+            <div class="authfooterblock">
+                <div class="authbutton">
+                    <a type="button" class="authRedirect" href="/Registration">Sign In</a>
+                </div>
+                <div class="authbutton">
+                    <button type="submit" class="authLogIn">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

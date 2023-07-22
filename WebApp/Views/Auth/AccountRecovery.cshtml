@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Forgot Password";
+}
+
+@section Sprites{
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Auth/recovery.css" asp-append-version="true" />
+}
+
+<div class="recoveryblock col-12">
+    <div class="recoveryPanel col-12 col-sm-9 col-xxl-6">
+        <div class="recoveryheader pb-1 pt-1 pallette-bg-color white-color">
+            Account recovery
+        </div>
+        <div class="recoverymain">
+            <div class="recoverymessage pb-0">
+                Enter the Login or Email that you used during registration, and press "Recover acces" button. A link to restore access to your account will be sent to your email.
+            </div>
+            <div class="recoveryloginemailblock">
+                <input class="recoveryloginemail" text="text" name="login" placeholder="Login / Email" />
+            </div>
+        </div>
+        <div class="recoveryfooter">
+            <div class="recoveryfooterblock">
+                <div class="recoverybutton">
+                    <a type="button" class="recoveryRedirect" href="/Authorization">Return to Log in</a>
+                </div>
+                <div class="recoverybutton">
+                    <button type="submit" class="recoverySendRecovery">Recover access</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
