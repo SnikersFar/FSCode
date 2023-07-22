@@ -23,7 +23,7 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public IActionResult ForgotPassword()
+        public IActionResult AccountRecovery()
         {
             return View();
         }

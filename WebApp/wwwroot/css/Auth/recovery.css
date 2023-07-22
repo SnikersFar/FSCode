@@ -1,39 +1,42 @@
-﻿.regPanel {
+﻿.recoveryblock {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.regPanelBlock {
+.recoveryPanel {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/*reg header*/
-.regheader {
+/*rec header*/
+
+.recoveryheader {
     border-radius: 10px 10px 0 0;
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
 }
 
-.registrationText {
-    margin: 0;
+
+/*rec main*/
+
+.recoverymain {
 }
 
-/*reg main*/
-
-
-.regmain {
+.recoverymessage {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem;
 }
 
-.regenicknameblock {
+.recoveryloginemailblock {
     width: 100%;
     padding: 0.75rem;
 }
 
-.regenickname {
+.recoveryloginemail {
     border: 0;
     border-bottom: 2px rgba(169, 169, 169, 1) solid;
     width: 100%;
@@ -43,91 +46,28 @@
     -webkit-transition: all 0.3s ease !important;
 }
 
-    .regenickname:focus {
+    .recoveryloginemail:focus {
         border-bottom: 2px rgba(30, 144, 255, 0.6) solid;
         outline: none;
     }
 
-.regemailblock {
-    padding: 0.75rem;
-    padding-top: 0;
-    width: 100%;
+/*rec footer*/
+
+.recoveryfooter {
 }
 
-.regemail {
-    border: 0;
-    border-bottom: 2px rgba(169, 169, 169, 1) solid;
-    width: 100%;
-    font-weight: 500;
-    font-size: 1.5rem;
-    transition: all 1s ease !important;
-    -webkit-transition: all 0.3s ease !important;
-}
-
-    .regemail:focus {
-        border-bottom: 2px rgba(30, 144, 255, 0.6) solid;
-        outline: none;
-    }
-
-.regloginblock {
-    padding: 0.75rem;
-    padding-top: 0;
-    width: 100%;
-}
-
-.reglogin {
-    border: 0;
-    border-bottom: 2px rgba(169, 169, 169, 1) solid;
-    width: 100%;
-    font-weight: 500;
-    font-size: 1.5rem;
-    transition: all 1s ease !important;
-    -webkit-transition: all 0.3s ease !important;
-}
-
-    .reglogin:focus {
-        border-bottom: 2px rgba(30, 144, 255, 0.6) solid;
-        outline: none;
-    }
-
-.regpasswordblock {
-    padding: 0.75rem;
-    padding-top: 0;
-    width: 100%;
-}
-
-.regpassword {
-    border: 0;
-    border-bottom: 2px rgba(169, 169, 169, 1) solid;
-    width: 100%;
-    font-weight: 500;
-    font-size: 1.5rem;
-    transition: all 1s ease !important;
-    -webkit-transition: all 0.3s ease !important;
-}
-
-    .regpassword:focus {
-        border-bottom: 2px rgba(30, 144, 255, 0.6) solid;
-        outline: none;
-    }
-
-/*reg footer*/
-
-.regfooter {
-}
-
-.regfooterblock {
+.recoveryfooterblock {
     display: flex;
 }
 
-.regbutton {
+.recoverybutton {
     display: flex;
     align-content: center;
     justify-content: center;
     width: 50%;
 }
 
-.regRedirect {
+.recoveryRedirect {
     padding: 0.25rem;
     text-decoration: none;
     text-align: center;
@@ -143,13 +83,13 @@
     -webkit-transition: all 0.3s ease !important;
 }
 
-    .regRedirect:hover {
+    .recoveryRedirect:hover {
         background-color: rgba(169, 169, 169, 0.9);
         color: #fff;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
-.regLogIn {
+.recoverySendRecovery {
     padding: 0.25rem;
     text-decoration: none;
     text-align: center;
@@ -165,7 +105,10 @@
     -webkit-transition: all 0.3s ease !important;
 }
 
-    .regLogIn:hover {
+    .recoverySendRecovery:hover {
         background-color: rgba(30, 144, 255, 0.9);
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     }
+
+
+/*Another styles*/
