@@ -2,7 +2,7 @@
 
 namespace WebApp.Dtos.Auth
 {
-    public class Registration
+    public class AuthRequestDto
     {
         [Required]
         public string Login { get; set; }

@@ -1,3 +1,8 @@
+using Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
+using Infrastructure.Extensions;
+using Infrastructure.Contexts.Repositories;
+
 namespace WebApp
 {
     public class Program
@@ -8,7 +13,14 @@ namespace WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddDbContext<StuffContext>
+            (
+            db => db.UseSqlServer(builder.Configuration["Db:Connection"],
+            b => b.MigrationsAssembly("Infrastructure"))
+            );
+            builder.Services.RegisterAutoRepositories(typeof(BaseRepository<>));
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

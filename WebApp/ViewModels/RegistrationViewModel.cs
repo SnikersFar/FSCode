@@ -1,6 +1,9 @@
-﻿namespace WebApp.ViewModels
+﻿using WebApp.Dtos.Auth;
+
+namespace WebApp.ViewModels
 {
-    public class Authorization
+    public class RegistrationViewModel
     {
+        public RegResponseDto RegResponse { get; set; }
     }
 }

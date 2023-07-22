@@ -8,5 +8,9 @@ namespace Infrastructure.Contexts.Repositories
         public AuthUserRepository(StuffContext context) : base(context)
         {
         }
+        public AuthUser? GetUserBy(Func<AuthUser, bool> predicate)
+        {
+            return _dbSet.SingleOrDefault(predicate);
+        }
     }
 }
