@@ -2,28 +2,39 @@
     ViewData["Title"] = "Registration";
 }
 
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/css/Auth/reg.css" asp-append-version="true" />
+@section Sprites{
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Auth/reg.css" asp-append-version="true" />
+}
 
 <div class="regPanel" id="regpanel">
-    <div class="regheader pallette-bg-color white-color">
-        <p class="registrationText">regorization</p>
-    </div>
-    <div class="regmain">
-        <div class="regloginblock">
-            <input class="reglogin" text="text" name="login" placeholder="Login"
+    <div class="regPanelBlock">
+        <div class="regheader pb-1 pt-1 pallette-bg-color white-color">
+            <p class="registrationText">Registration</p>
         </div>
-        <div class="regemailblock">
-            <input class="regemail" text="text" name="Email" placeholder="Email"
+        <div class="regmain">
+            <div class="regenicknameblock">
+                <input class="regenickname" text="text" name="Nickname" placeholder="Nickname" />
+            </div>
+            <div class="regemailblock">
+                <input class="regemail" text="text" name="Email" placeholder="Email" />
+            </div>
+            <div class="regloginblock">
+                <input class="reglogin" text="text" name="login" placeholder="Login" />
+            </div>
+            <div class="regpasswordblock">
+                <input class="regpassword" text="text" name="password" placeholder="Password" />
+            </div>
         </div>
-        <div class="regpasswordblock">
-            <input class="regpassword" text="text" name="password" placeholder="Password"
-        </div>
-    </div>
-    <div class="regfooter">
-        <div class="regfooterblock">
-            <a type="button" class="regRedirect" href="/Authorization">Log in</a>
-            <button type="submit" class="regLogIn">Sign in</button>
+        <div class="regfooter">
+            <div class="regfooterblock">
+                <div class="regbutton">
+                    <a type="button" class="regRedirect" href="/Authorization">Log in</a>
+                </div>
+                <div class="regbutton">
+                    <button type="submit" class="regLogIn">Sign in</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -2,8 +2,14 @@
     ViewData["Title"] = "Authorization";
 }
 
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/css/Auth/auth.css" asp-append-version="true" />
+@section Scripts{
+    <script src="~/js/Auth/auth.js"></script>
+}
+
+@section Sprites{
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Auth/auth.css" asp-append-version="true" />
+}
 
 <div class="authPanel" id="authpanel">
     <div class="authPanelBlock">
@@ -12,10 +18,15 @@
         </div>
         <div class="authmain">
             <div class="authloginblock">
-                <input class="authlogin" text="text" name="login" placeholder="Login"
+                <input class="authlogin" text="text" name="login" placeholder="Login" />
             </div>
             <div class="authpasswordblock">
-                <input class="authpassword" text="text" name="password" placeholder="Password"
+                <input class="authpassword" text="text" name="password" placeholder="Password" />
+            </div>
+        </div>
+        <div class="forgotpasswordBlock" id="forgotPasswordBlock">
+            <div class="forgotpassword">
+                <a type="button" class="forgotpasswordbutton" href="/ForgotPassword">Forgot password ?</a>
             </div>
         </div>
         <div class="authfooter">
@@ -30,3 +41,5 @@
         </div>
     </div>
 </div>
+
+

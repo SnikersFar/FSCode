@@ -36,6 +36,11 @@ namespace WebApp
                 defaults: new { controller = "Auth", action = "Registration" });
 
             app.MapControllerRoute(
+            name: "forgotpassword",
+            pattern: "ForgotPassword",
+            defaults: new { controller = "Auth", action = "ForgotPassword" });
+
+            app.MapControllerRoute(
                 name: "authorization",
                 pattern: "Authorization",
                 defaults: new { controller = "Auth", action = "Authorization" });
